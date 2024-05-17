@@ -13,11 +13,46 @@ char teclado [4][4] = {
 
 void init(char port){
     char port= toupper(port);
+    switch (port){
+    case 'a':
     for(i=0; i<4; i++){
         PORTA->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
         PORTA->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
         PORTA->PCR[pinFilas[i]]|=PORT_PCR_MUX(1);
     }
+        break;
+            case 'b':
+    for(i=0; i<4; i++){
+        PORTB->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
+        PORTB->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
+        PORTB->PCR[pinFilas[i]]|=PORT_PCR_MUX(1);
+    }
+        break;
+            case 'c':
+    for(i=0; i<4; i++){
+        PORTC->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
+        PORTC->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
+        PORTC->PCR[pinFilas[i]]|=PORT_PCR_MUX(1);
+    }
+        break;
+            case 'd':
+    for(i=0; i<4; i++){
+        PORTD->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
+        PORTD->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
+        PORTD->PCR[pinFilas[i]]|=PORT_PCR_MUX(1);
+    }
+        break;
+            case 'e':
+    for(i=0; i<4; i++){
+        PORTE->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
+        PORTE->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
+        PORTE->PCR[pinFilas[i]]|=PORT_PCR_MUX(1);
+    }
+        break;
+    
+
+    }
+
 }
 char tecla (char port){
     char port= toupper(port);
