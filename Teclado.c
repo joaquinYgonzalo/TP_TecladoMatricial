@@ -1,5 +1,6 @@
 #include "Teclado.h"
 #include "MKL25Z4.h"
+#include "ctype.h"
 int i, j;
 int pinColumnas[4]={1, 2, 3, 4};
 int pinFilas[4]={5,6,7,8};
@@ -11,6 +12,7 @@ char teclado [4][4] = {
 };
 
 void init(char port){
+    char port= toupper(port);
     for(i=0; i<4; i++){
         PORTA->PCR[pinColumnas[i]]|=PORT_PCR_MUX(1);
         PORTA->PCR[pinFilas[i]]|=PORT_PCR_MUX(0)|PORT_PCR_PE_MASK|PORT_PCR_PS_MASK;
@@ -18,6 +20,7 @@ void init(char port){
     }
 }
 char tecla (char port){
+    char port= toupper(port);
     int Est_columnas;
     switch (port){
     case'A':
